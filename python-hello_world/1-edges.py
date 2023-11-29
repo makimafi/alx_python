@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 word = "Holberton"
-# YOUR CODE GOES HERE. PLEASE REMOVE THIS LINE
 word_first_3 {2,""}
 word_last_2 {1,-1}
 middle_word {2,-2}
