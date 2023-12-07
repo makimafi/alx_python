@@ -7,5 +7,3 @@ except ZeroDivisionError:
 finally:
     print("Inside result: {}".format(result))
     return result
-
-
