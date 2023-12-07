@@ -1,6 +1,9 @@
 #!/usr/bin/python3
-for i in range (0, 100):
-    if i == 99:
-        print(i)
-    else:
-        print("{:02}".format(i), end=", ")
+def raise_exception_msg(message=""):
+     raise nameerror(message)
+# Test the function
+if __name__ == " _main_ ":
+    try:
+        raise_exception_msg("c is fun")
+    Except nameerror as ne:
+        print(ne)
