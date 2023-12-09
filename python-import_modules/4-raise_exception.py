@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def raise_exception():
-    raise typeError("this is a deliberate typeerror")
+    raise TypeError("this is a deliberate typeerror")
 # uncomment the foolowing line if you want to test the function directly
 #try:
 # raise_exception()
