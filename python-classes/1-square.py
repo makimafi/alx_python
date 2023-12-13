@@ -1,32 +1,43 @@
 #!/usr/bin/python3
-my_square_1 = Square(3)
-print(type(my_square_1))
-print(my_square_1.__dict__)
 
-my_square_2 = Square()
-print(type(my_square_2))
-print(my_square_2.__dict__)
+class Square:
+    def __init__(self, size=0):
+        self.__size = size
+        self.__validate_size()
 
+    @property
+    def size(self):
+        return self.__size
+
+    @size.setter
+    def size(self, value):
+        self.__size = value
+        self.__validate_size()
+
+    def area(self):
+        return self.__size * self.__size
+
+    def __validate_size(self):
+        if not isinstance(self.__size, int):
+            raise TypeError("size must be an integer")
+        elif self.__size < 0:
+            raise ValueError("size must be >= 0")
+
+# Example usage:
 try:
-    print(my_square_1.size)
-except Exception as e:
-    print(e)
+    square = Square(5)
+    print(f"Square size: {square.size}")
+    print(f"Square area: {square.area()}")
 
-try:
-    print(my_square_1.__size)
-except Exception as e:
-    print(e)
+    square.size = 7
+    print(f"Updated square size: {square.size}")
+    print(f"Updated square area: {square.area()}")
 
-try:
-    my_square_3 = Square("3")
-    print(type(my_square_3))
-    print(my_square_3.__dict__)
-except Exception as e:
-    print(e)
+    # Uncomment the line below to test the ValueError exception
+    # square.size = -3
 
-try:
-    my_square_4 = Square(-89)
-    print(type(my_square_4))
-    print(my_square_4.__dict__)
-except Exception as e:
-    print(e)
+    # Uncomment the line below to test the TypeError exception
+    # square.size = "not_an_integer"
+
+except (TypeError, ValueError) as error:
+    print(f"Error: {error}")
