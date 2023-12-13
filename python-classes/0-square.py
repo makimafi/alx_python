@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-Square = __import__('0-square').Square
+(python3 -c 'print(__import__("my_module").__doc__)')
