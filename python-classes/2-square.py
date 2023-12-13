@@ -1,17 +1,14 @@
 #!/usr/bin/python3
-my_square_1 = Square(3)
-print("Area: {}".format(my_square_1.area()))
+class Square:
+    def _init_(self, size=0):
+        print("size, 89")
+        class Square:
+    def __init__(self, size):
+        self.__size = size  # Private instance attribute
 
-try:
-    print(my_square_1.size)
-except Exception as e:
-    print(e)
+# Example usage:
+# Create an instance of Square with a size of 5
+square_instance = Square(5)
 
-try:
-    print(my_square_1.__size)
-except Exception as e:
-    print(e)
-
-my_square_2 = Square(5)
-print("Area: {}".format(my_square_2.area()))
-
+# Access the size attribute (though it's private, the name is _Square__size)
+print(square_instance._Square__size)
