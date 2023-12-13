@@ -1,2 +1,5 @@
 #!/usr/bin/python3
-(python3 -c 'print(__import__("my_module").__doc__)')
+class square:   
+def _init_(self, size="0"):
+    self.size = size
+    
