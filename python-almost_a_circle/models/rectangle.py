@@ -9,10 +9,10 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """ Constructor method """
         super().__init__(id)
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
+        self.__width = width
+        self.__height = height
+        self.__x = x
+        self.__y = y
 
     @property
     def width(self):
@@ -53,13 +53,112 @@ class Rectangle(Base):
     def y(self, value):
         """ Setter method for y """
         self.__y = value
+def area(self):
+        """ Method to calculate the area of the rectangle """
+        return self.__width * self.__height
+def display(self):
+        """ Method to display the rectangle with '#' characters """
+        for _ in range(self.__height):
+            print("#" * self.__width)
+  def __str__(self):
+        """ Method to override the default __str__ method """
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.__x, self.__y, self.__width, self.__height
+        )
+def update(self, *args):
+    """ Method to update attributes based on the order of *args """
+    if args:
+        attributes = ["id", "width", "height", "x", "y"]
+        for i in range(len(args)):
+            setattr(self, attributes[i], args[i])
+def update(self, *args, **kwargs):
+    """ Method to update attributes based on *args and **kwargs """
+    if args:
+        attributes = ["id", "width", "height", "x", "y"]
+        for i in range(len(args)):
+            setattr(self, attributes[i], args[i])
+    elif kwargs:
+        for key, value in kwargs.items():
+            setattr(self, key, value)
+class Rectangle(Base):
+    """ Class Rectangle that inherits from Base """
 
-Explanation:
+    def __init__(self, width, height, x=0, y=0, id=None):
+        """ Constructor method """
+        super().__init__(id)
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
-    The Rectangle class inherits from the Base class.
-    The constructor (__init__) calls the superclass (Base) constructor using super().__init__(id) to handle the id logic.
-    Private instance attributes (__width, __height, __x, __y) are created along with their corresponding public getter and setter methods.
-    The use of getters and setters allows for attribute validation and ensures that attributes are accessed and modified in a controlled manner.
+    # Other methods and properties...
 
-The provided 1-main.py script can be used to test the functionality of the Rectangle class, as shown in the example output you provided.
+    def update(self, *args, **kwargs):
+        """ Method to update attributes based on *args and **kwargs """
+        if args:
+            attributes = ["id", "width", "height", "x", "y"]
+            for i in range(len(args)):
+                setattr(self, attributes[i], args[i])
+        elif kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
+    # Other methods and properties...
+
+    def __str__(self):
+        """ Method to override the default __str__ method """
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.x, self.y, self.width, self.height
+        )
+
+if __name__ == "__main__":
+    r1 = Rectangle(10, 10, 10, 10)
+    print(r1)
+
+    r1.update(height=1)
+    print(r1)
+
+    r1.update(width=1, x=2)
+    print(r1)
+
+    r1.update(y=1, width=2, x=3, id=89)
+    print(r1)
+
+    r1.update(x=1, height=2, y=3, width=4)
+    print(r1)
+
+from models.rectangle import Rectangle
+
+class Square(Rectangle):
+    """ Class Square that inherits from Rectangle """
+
+    def __init__(self, size, x=0, y=0, id=None):
+        """ Constructor method """
+        super().__init__(size, size, x, y, id)
+
+    @property
+    def size(self):
+        """ Getter method for size """
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        """ Setter method for size """
+        self.width = value
+        self.height = value
+
+    def __str__(self):
+        """ Method to override the default __str__ method """
+        return "[Square] ({}) {}/{} - {}".format(
+            self.id, self.x, self.y, self.width
+        )
+@property
+def size(self):
+    """ Getter method for size """
+    return self.width
+
+@size.setter
+def size(self, value):
+    """ Setter method for size """
+    self.width = value
+    self.height = value
