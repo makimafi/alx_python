@@ -10,7 +10,7 @@ import sys
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-        print("Usage: ./2-post_email.py <URL> <email>")
+        print("Usage: ./2-post_email.py <http://0.0.0.0:5000/post_email hr@holbertonschool.com> <test@test.com>")
         sys.exit(1)
 
     url = sys.argv[1]
