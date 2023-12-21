@@ -24,7 +24,7 @@ if __name__ == '__main__':
     username = sys.argv[1]
     token = sys.argv[2]
 
-    github_id = get_github_id("makimafi, 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")
+    github_id = get_github_id("makimafi, ")
 
     print(github_id)
 
