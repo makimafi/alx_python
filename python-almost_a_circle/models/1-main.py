@@ -23,7 +23,10 @@ class Rectangle(Base):
     def width(self, value):
         """ Setter method for width """
         self.__width = value
-
+        if not isinstance(value, int):
+            raise TypeError("y must be an integer")
+        elif value < 0:
+            raise ValueError("y must be >= 0")
     @property
     def height(self):
         """ Getter method for height """

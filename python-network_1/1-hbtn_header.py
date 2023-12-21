@@ -1,19 +1,14 @@
 #!/usr/bin/python3
 """
-Script that takes in a URL, sends a request to the URL, and
-displays the value of the variable X-Request-Id in the response header.
+Fetches https://alu-intranet.hbtn.io/status using the requests package
 """
 
 import requests
-import sys
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: ./1-hbtn_header.py <URL>")
-        sys.exit(1)
-
-    url = sys.argv[1]
+    url = "https://alu-intranet.hbtn.io/status"
     response = requests.get(url)
-
-    x_request_id = response.headers.get('X-Request-Id')
-    print(x_request_id)
+    
+    print("Body response:")
+    print("\t- type: {}".format(type(response.text)))
+    print("\t- content: {}".format(response.text))
