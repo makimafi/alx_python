@@ -1,0 +1,2 @@
+import 1-hbnb_route
+print(1-hbnb_route.__doc__)
