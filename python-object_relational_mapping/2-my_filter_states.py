@@ -1,35 +1,38 @@
 #!/usr/bin/python3
-"""Script that takes in an argument and displays all values in the
-states table of hbtn_0e_0_usa where name matches the argument."""
+"""
+Script that takes in an argument and displays all values in the states
+table of hbtn_0e_0_usa where name matches the argument.
+"""
 
 import MySQLdb
-from sys import argv
+import sys
 
 if __name__ == "__main__":
-    # Connect to MySQL server running on localhost at port 3306
-    db = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=argv[1],
-        passwd=argv[2],
-        db=argv[3],
-        charset="utf8"
-    )
+    # Get command line arguments
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+    state_name = sys.argv[4]
 
-    # Create a cursor object to execute queries
+    # Connect to MySQL server
+    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+
+    # Create a cursor object using cursor() method
     cursor = db.cursor()
 
-    # Execute SQL query using format with user input
-    query = "SELECT * FROM states WHERE name=%s ORDER BY id ASC"
-    cursor.execute(query, (argv[4],))
+    # SQL query using format with user input
+    query = "SELECT * FROM states WHERE BINARY name = '{}' ORDER BY id".format(state_name)
 
-    # Fetch all the rows in a list of tuples
-    rows = cursor.fetchall()
+    # Execute the SQL query
+    cursor.execute(query)
+
+    # Fetch all the rows in a list of lists
+    results = cursor.fetchall()
 
     # Display the results
-    for row in rows:
+    for row in results:
         print(row)
 
-    # Close cursor and database connection
+    # Close the cursor and database connection
     cursor.close()
     db.close()
