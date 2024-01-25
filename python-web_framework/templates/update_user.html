@@ -1,22 +1,22 @@
-<!-- add_user -->
+<!-- update_user -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add User</title>
+    <title>Update User</title>
     <style>
-        /* Inline CSS for basic styling */
+        /* Similar styling as add_user.html */
         body { font-family: Arial, sans-serif; margin: 20px; }
         form { max-width: 300px; margin: auto; }
         input, button { width: 100%; margin: 5px 0; }
     </style>
 </head>
 <body>
-    <h2>Add User</h2>
-    <form action="/add_user" method="post">
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <button type="submit">Add User</button>
+    <h2>Update User</h2>
+    <form action="/update_user/{{ user.id }}" method="post">
+        <input type="text" name="name" placeholder="Name" value="{{ user.name }}" required>
+        <input type="email" name="email" placeholder="Email" value="{{ user.email }}" required>
+        <button type="submit">Update User</button>
     </form>
 </body>
 </html>
