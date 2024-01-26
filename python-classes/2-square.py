@@ -1,14 +1,23 @@
 #!/usr/bin/python3
+"""Defines a Square class."""
+
+
 class Square:
-    def _init_(self, size=0):
-        print("size, 89")
-        class Square:
-    def __init__(self, size):
-        self.__size = size  # Private instance attribute
+    """Represents a square."""
 
-# Example usage:
-# Create an instance of Square with a size of 5
-square_instance = Square(5)
+    def __init__(self, size=0):
+        """Initializes a new Square.
 
-# Access the size attribute (though it's private, the name is _Square__size)
-print(square_instance._Square__size)
+        Args:
+            size (int): The size of the square.
+        """
+        if not isinstance(size, int):
+            raise TypeError("size must be an integer")
+        elif size < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = size
+
+    def area(self):
+        """Computes the area of the square."""
+        return self.__size ** 2
