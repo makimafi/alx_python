@@ -11,8 +11,7 @@ def pow(a, b):
     return result
 
 # Test cases
-print(pow(2, 2))
-print(pow(98, 2))
-print(pow(98, 0))
-print(pow(100, -2))
-print(pow(-4, 5))
+print(pow(2, 2))    # Expected output: 4
+print(pow(-2, 2))    # Expected output: 4
+print(pow(10, -2))   # Expected output: 0.01
+print(pow(-98, -10)) # Expected output: 1.223881142011411e-20
