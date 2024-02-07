@@ -1,17 +1,35 @@
+#!/usr/bin/env python3
 def pow(a, b):
-    if b == 0:
-        return 1
-    elif b < 0:
+    """
+    Computes the value of a raised to the power of b.
+
+    Args:
+        a: base number
+        b: exponent
+
+    Returns:
+        The value of a raised to the power of b.
+    """
+    result = 1
+
+    # Handling negative exponents
+    if b < 0:
         a = 1 / a
         b = -b
 
-    result = 1
-    for _ in range(b):
-        result *= a
+    # Exponentiation by squaring algorithm
+    while b:
+        if b % 2 == 1:
+            result *= a
+        a *= a
+        b //= 2
+
     return result
 
-# Test cases
-print(pow(2, 2))    # Expected output: 4
-print(pow(-2, 2))    # Expected output: 4
-print(pow(10, -2))   # Expected output: 0.01
-print(pow(-98, -10)) # Expected output: 1.223881142011411e-20
+# Testing the function
+if __name__ == "__main__":
+    print(pow(2, 2))
+    print(pow(98, 2))
+    print(pow(98, 0))
+    print(pow(100, -2))
+    print(pow(-4, 5))
