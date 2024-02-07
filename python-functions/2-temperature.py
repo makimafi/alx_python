@@ -1,17 +1,10 @@
-def pow(a, b):
-    if b == 0:
-        return 1
-    elif b < 0:
-        a = 1 / a
-        b = -b
-    result = 1
-    while b > 0:
-        if b % 2 == 1:
-            result *= a
-        a *= a
-        b //= 2
-    return round(result, 10)  # Round the result to 10 decimal places
+#!/usr/bin/env python3
+def convert_to_celsius(fahrenheit):
+    celsius = (fahrenheit - 32) * 5/9
+    return celsius
 
-# Test cases
-print(pow(10, -2))   # Output: 0.01
-print(pow(-98, -10))  # Output: 1.223881142e-20
+if __name__ == "__main__":
+    print(convert_to_celsius(100))
+    print(convert_to_celsius(-40))
+    print(convert_to_celsius(-459.67))
+    print(convert_to_celsius(32))
