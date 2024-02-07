@@ -1,15 +1,21 @@
 #!/usr/bin/env python3
+
 def pow(a, b):
-    """
-    Computes the value of a raised to the power of b.
+    if b == 0:
+        return 1
+    result = 1
+    if b > 0:
+        for _ in range(b):
+            result *= a
+    else:
+        for _ in range(-b):
+            result /= a
+    return round(result, 10)  # Round the result to 10 decimal places
 
-    Args:
-        a: base number
-        b: exponent
+# Test cases
+print(pow(10, -2))
+print(pow(-98, -10))
 
-    Returns:
-        The value of a raised to the power of b.
-    """
     result = 1
 
     # Handling negative exponents
