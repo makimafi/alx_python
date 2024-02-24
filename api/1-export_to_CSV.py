@@ -1,5 +1,5 @@
-import sys
 import csv
+import sys
 
 # Sample data
 tasks_data = {
