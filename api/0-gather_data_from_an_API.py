@@ -1,5 +1,5 @@
-import sys
 import requests
+import sys
 
 def fetch_todo_list(employee_id):
     base_url = "https://jsonplaceholder.typicode.com"
@@ -40,5 +40,3 @@ if __name__ == "__main__":
         sys.exit(1)
 
     fetch_todo_list(int(employee_id))
-     
-     
