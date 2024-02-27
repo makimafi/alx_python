@@ -35,8 +35,9 @@ if __name__ == "__main__":
         print("Error: Employee ID must be an integer.")
         sys.exit(1)
 
-    fetch_employee_data(employee_id)
-
 for task in completed_tasks:
     print(f"\t{task['title']}")  # Ensure one tabulation and one space before the task title
+    
+    fetch_employee_data(employee_id)
+
 
