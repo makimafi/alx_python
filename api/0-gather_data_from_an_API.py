@@ -36,3 +36,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     fetch_employee_data(employee_id)
+
+for task in completed_tasks:
+    print(f"\t{task['title']}")  # Ensure one tabulation and one space before the task title
+
