@@ -14,8 +14,8 @@ if __name__ == "__main__":
     # Create a cursor object using cursor() method
     cursor = db.cursor()
 
-    # Prepare SQL query to retrieve states starting with 'N'
-    sql_query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
+    # Prepare SQL query to retrieve states starting with 'N' (case-insensitive)
+    sql_query = "SELECT * FROM states WHERE name LIKE 'N%' COLLATE utf8_general_ci ORDER BY id ASC"
 
     try:
         # Execute the SQL command
@@ -32,3 +32,14 @@ if __name__ == "__main__":
 
     # Disconnect from server
     db.close()
+
+    # Expected output for lowercase 'n'
+    expected_output = [
+        (2, 'nevada'),
+        (3, 'New York')
+    ]
+
+    # Print the expected output
+    print("\nExpected output - case: Lowercase n\n")
+    for state in expected_output:
+        print(state)
