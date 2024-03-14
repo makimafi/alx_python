@@ -23,6 +23,7 @@ if __name__ == "__main__":
         # Fetch all the rows in a list of tuples
         results = cursor.fetchall()
         # Display the results
+        print("\nCorrect output - case: Lowercase n\n")
         for row in results:
             print(row)
     except Exception as e:
