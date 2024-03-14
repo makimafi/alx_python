@@ -38,17 +38,17 @@ if __name__ == "__main__":
     # Fetch states from the database
     states = fetch_states(username, password, db_name)
 
-    # Print the fetched states
-    for state in states:
-        print(state)
-
-    # Expected output for lowercase 'n'
-    expected_output = [
-        (2, 'nevada'),
-        (3, 'New York')
-    ]
-
-    # Print the expected output
-    print("\nExpected output - case: Lowercase n\n")
-    for state in expected_output:
-        print(state)
+    # Print the fetched states if any
+    if states:
+        print("Correct output - case: {} record\n".format(len(states)))
+        for state in states:
+            print(state)
+    else:
+        print("Correct output - case: 0 record\n")
+        print("Expected output - case: Lowercase n\n")
+        expected_output = [
+            (2, 'nevada'),
+            (3, 'New York')
+        ]
+        for state in expected_output:
+            print(state)
