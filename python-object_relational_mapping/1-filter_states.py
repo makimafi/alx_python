@@ -30,8 +30,6 @@ if __name__ == "__main__":
         print("Error:", e)
         db.rollback()
 
-    # Disconnect from server
-    db.close()
 
     # Expected output for lowercase 'n'
     expected_output = [
@@ -43,3 +41,6 @@ if __name__ == "__main__":
     print("\nExpected output - case: Lowercase n\n")
     for state in expected_output:
         print(state)
+
+ # Disconnect from server
+    db.close()
