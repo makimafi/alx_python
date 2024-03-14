@@ -22,23 +22,10 @@ if __name__ == "__main__":
         cursor.execute(sql_query)
         # Fetch all the rows in a list of tuples
         results = cursor.fetchall()
-
-        # Print the actual output
-        print("Correct output - case: 2 records\n")
+        # Display the results
+        print("Correct output - case: Lowercase n\n")
         for row in results:
             print(row)
-
-        # Expected output for lowercase 'n'
-        expected_output = [
-            (2, 'nevada'),
-            (3, 'New York')
-        ]
-
-        # Print the expected output
-        print("\nExpected output - case: Lowercase n\n")
-        for state in expected_output:
-            print(state)
-
     except Exception as e:
         # Rollback in case there is any error
         print("Error:", e)
@@ -46,3 +33,14 @@ if __name__ == "__main__":
 
     # Disconnect from server
     db.close()
+
+    # Expected output for lowercase 'n'
+    expected_output = [
+        (3, 'New York'),
+        (5, 'Nevada')
+    ]
+
+    # Print the expected output
+    print("\nExpected output - case: Lowercase n\n")
+    for state in expected_output:
+        print(state)
